@@ -11,7 +11,8 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuToggle = () => {
       setMenuOpen(!menuOpen)
-  }  ;
+  };
+
   const handleToggle = (e: { target: { checked: any; }; }) => {
       if(e.target.checked) {
           setTheme('dark');
