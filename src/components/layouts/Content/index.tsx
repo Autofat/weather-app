@@ -1,5 +1,8 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useRef, useState} from "react";
 import SearchFill from "@/components/elements/SearchFill";
+import FirstModal from "@/components/elements/FirstModal";
+import ErrorModal from "@/components/elements/ErrorModal";
+import Current from "@/components/elements/Current";
 
 
 const Content = () => {
@@ -29,16 +32,38 @@ const Content = () => {
             }
             const data = await response.json();
             setData(data);
-            setLocation("Depok");
-            setError
+            setLocation("");
+            setError("");
         }catch(error){
             setError("Location Not Found!");
             setData({})
         }
     }
-  }
+  };
+  const modalRef = useRef<HTMLDialogElement | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    const modal = modalRef.current;
+    if (modal !== null && !modal.open) {
+      modal.showModal();
+    }
+    return () => {
+        if(modal){
+            modal.close();
+        }
+    };
+  }, []);
 
+  let content;
+  if(Object.keys(data).length === 0 && error === ""){
+    content = <FirstModal/>
+  }else if(error !== ""){
+    content = <ErrorModal/>
+  }else{
+    content = <Current data={data}/>
+  }
   return (
+    
     <main>
         <div className="flex justify-center mt-10 lg:hidden ease-in-out duration-300">
             <h1 className="font-bold text-xl">Weather App</h1>
@@ -48,31 +73,8 @@ const Content = () => {
                 <div className="flex justify-center my-6 gap-1">
                     <SearchFill handlerSearch={handlerSearch} setLocation = {setLocation}/>
                 </div>
-                <div className="flex flex-col items-center h-full">
-                    <h1 className="text-base-100">
-                        Wed, 17th January 2024
-                    </h1>
-                    <div className="flex flex-col items-center gap-30">
-                        <h1 className="text-base-100 font-bold text-6xl my-8 mx-2">
-                            {data.hasOwnProperty('current') ? (data as { current: { temp_c: string } }).current.temp_c : null}
-                            <a className="absolute text-3xl">
-                                °C
-                            </a>
-                        </h1>
-                    </div>
-                    <div className="flex flex-col items-center h-full gap-0">
-                        <>
-                            <h1 className="text-base-100 font-semibold text-lg">
-                                {data.hasOwnProperty('location') ? (data as { location: { name: string } }).location.name : null}
-                            </h1>
-                            <h1 className="text-base-100 font-thin text-sm ">
-                                {data.hasOwnProperty('location') ? (data as { location: { region: string } }).location.region : null}
-                            </h1>
-                        </>
-                        <h1 className="text-base-100 font-thin  text-[16px]  ">
-                            {data.hasOwnProperty('location') ? (data as { location: { country: string } }).location.country : null}   
-                        </h1>
-                    </div>
+                <div className="flex flex-col items-center h-full mx-3">
+                    {content}
                 </div>
             </div>
 
