@@ -3,6 +3,7 @@ import SearchFill from "@/components/elements/SearchFill";
 import FirstModal from "@/components/elements/FirstModal";
 import ErrorModal from "@/components/elements/ErrorModal";
 import Current from "@/components/elements/Current";
+import Footer from "../Footer";
 
 
 const Content = () => {
@@ -68,17 +69,18 @@ const Content = () => {
         <div className="flex justify-center mt-10 lg:hidden ease-in-out duration-300">
             <h1 className="font-bold text-xl">Weather App</h1>
         </div>
-        <div className={"flex justify-center mt-10 md:mx-10 md:mt-10"}>
-            <div className={`rounded-2xl bg-slate-600 h-[450px]  w-[350px] lg:w-[792px] lg:h-[650px] md:w-[650px] md:h-[538px]  ease-in-out duration-300`}>
+        <div className={"flex justify-center my-10 md:mx-10 md:mt-10"}>
+            <div className={`rounded-2xl bg-slate-600 min-h-[450px] min-w-[350px] lg:w-[792px] lg:h-[680px] md:w-[695px] md:h-[680px] ease-in-out duration-300`}>
                 <div className="flex justify-center my-6 gap-1">
                     <SearchFill handlerSearch={handlerSearch} setLocation = {setLocation}/>
                 </div>
-                <div className="flex flex-col items-center h-full mx-3">
+                <div className="flex flex-col items-center h-full mx-3 mb-10">
                     {content}
                 </div>
             </div>
 
         </div>
+        <Footer/>
     </main>
   );
 };

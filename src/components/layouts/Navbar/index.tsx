@@ -43,10 +43,10 @@ const Navbar = () => {
                 </div>
                 <ul tabIndex={0} className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 ${menuOpen ? 'block' : 'hidden'} `}>
                     <li>
-                        <a className='text-xl font-medium'>Profile</a>
+                        <a href='#' className='text-xl font-medium'>Profile</a>
                     </li>
                     <li>
-                        <a className='text-xl font-medium'>Portofolio</a>
+                        <a href='#' className='text-xl font-medium'>Portofolio</a>
                     </li>
                 </ul>
             </div>
