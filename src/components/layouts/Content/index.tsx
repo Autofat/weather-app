@@ -21,7 +21,7 @@ const Content = () => {
   const[data, setData] = useState({});
   const [location, setLocation] = useState("");
   const [error, setError] = useState("");
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHERAPI_KEY}&q=${location}&days=3&aqi=yes&alerts=yes`; 
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHERAPI_KEY}&q=${location}&days=3&aqi=yes&alerts=yes`; 
 
   const handlerSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if(e.key === "Enter"){
