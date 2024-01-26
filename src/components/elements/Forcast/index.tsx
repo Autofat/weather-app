@@ -5,7 +5,7 @@ const Forcast = ({data}: {data:any}) =>{
     return(
         <div className="hidden md:my-5 md:flex md:flex-col md:justify-center md:items-center ">
             <h1 className="text-base-100 text-xl font-semibold">
-                Forcast
+                Forecast
             </h1>
             <div className="grid grid-cols-3 gap-5 lg:gap-10 my-5">
                 {data.forecast.forecastday.map((day: any, index: any) => (

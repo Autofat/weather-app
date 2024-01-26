@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { IoMdClose } from "react-icons/io";
 
 const ErrorModal =()=>{
     const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +20,7 @@ const ErrorModal =()=>{
           <div className="modal-action">
             <form method="dialog">
               <button className="btn rounded-3xl font-bold" onClick={() => setIsOpen(false)}>
-                <IoMdClose />
+                Close
               </button>
             </form>
           </div>

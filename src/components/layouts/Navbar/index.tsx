@@ -43,7 +43,7 @@ const Navbar = () => {
                 </div>
                 <ul tabIndex={0} className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 ${menuOpen ? 'block' : 'hidden'} `}>
                     <li>
-                        <a href='#' className='text-xl font-medium'>Profile</a>
+                        <a href='https://borneowibowo.vercel.app/' target='_blank' className='text-xl font-medium'>Profile</a>
                     </li>
                     <li>
                         <a href='#' className='text-xl font-medium'>Portofolio</a>
@@ -62,7 +62,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end gap-3">
             <ul className="menu menu-horizontal hidden lg:flex px-1">
-                <li><a>Profile</a></li>
+                <li><a href='https://borneowibowo.vercel.app/' target='_blank'>Profile</a></li>
                 <li><a>Portofolio</a></li>
             </ul>
             <label className="swap swap-rotate">
